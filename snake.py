@@ -6,6 +6,7 @@ UP = 90
 LEFT = 180
 RIGHT = 0
 
+
 class Snake:
 
     def __init__(self):
@@ -43,3 +44,11 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
+    def grow(self):
+        last_seg = self.segments[len(self.segments)-1]
+        segment = Turtle()
+        segment.penup()
+        segment.shape("square")
+        segment.goto(last_seg.pos())
+        segment.color("white")
+        self.segments.append(segment)

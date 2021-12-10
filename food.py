@@ -13,5 +13,9 @@ class Food(Turtle):
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.color("blue")
         self.speed("fastest")
-        self.goto(possible_xy[random.randint(0, len(possible_xy)-1)], possible_xy[random.randint(0, len(possible_xy)-1)])
+        self.generate()
 
+    def generate(self):
+        self.goto(possible_xy[random.randint(0, len(possible_xy) - 1)],
+                  possible_xy[random.randint(0, len(possible_xy) - 1)])
+        print(self.pos())

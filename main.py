@@ -26,5 +26,10 @@ while game_is_on:
     time.sleep(0.05)
     snake.move()
 
+    if snake.head.distance(food) < 1:
+        snake.grow()
+        food.generate()
+
+
 
 screen.exitonclick()
