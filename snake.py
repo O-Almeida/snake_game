@@ -1,13 +1,17 @@
 from turtle import Turtle
 
 MOVE_DISTANCE = 20
-
+DOWN = 270
+UP = 90
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
     def __init__(self):
         self.segments = []
         self.initialize(MOVE_DISTANCE)
+        self.head = self.segments[0]
 
     def initialize(self, x):
         for i in range(3):
@@ -21,41 +25,21 @@ class Snake:
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
             self.segments[seg_num].goto(self.segments[seg_num - 1].pos())
-        self.segments[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
 
     def up(self):
-        first_seg = self.segments[0]
-        second_seg = self.segments[1]
-        if first_seg.ycor() == second_seg.ycor():
-            if first_seg.xcor() > second_seg.xcor():
-                first_seg.left(90)
-            else:
-                first_seg.right(90)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     def down(self):
-        first_seg = self.segments[0]
-        second_seg = self.segments[1]
-        if first_seg.ycor() == second_seg.ycor():
-            if first_seg.xcor() > second_seg.xcor():
-                first_seg.right(90)
-            else:
-                first_seg.left(90)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def left(self):
-        first_seg = self.segments[0]
-        second_seg = self.segments[1]
-        if first_seg.ycor() != second_seg.ycor():
-            if first_seg.ycor() < second_seg.ycor():
-                first_seg.right(90)
-            else:
-                first_seg.left(90)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
 
     def right(self):
-        first_seg = self.segments[0]
-        second_seg = self.segments[1]
-        if first_seg.ycor() != second_seg.ycor():
-            if first_seg.ycor() < second_seg.ycor():
-                first_seg.left(90)
-            else:
-                first_seg.right(90)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
