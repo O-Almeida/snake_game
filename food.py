@@ -1,7 +1,7 @@
 from turtle import Turtle
 import random
 
-MAX_VALUE = 340
+MAX_VALUE = 320
 possible_xy = [x for x in range(-MAX_VALUE, MAX_VALUE, 20)]
 
 
