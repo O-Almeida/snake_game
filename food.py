@@ -18,4 +18,4 @@ class Food(Turtle):
     def generate(self):
         self.goto(possible_xy[random.randint(0, len(possible_xy) - 1)],
                   possible_xy[random.randint(0, len(possible_xy) - 1)])
-        print(self.pos())
+        print(f"Food position: {self.pos()}")
